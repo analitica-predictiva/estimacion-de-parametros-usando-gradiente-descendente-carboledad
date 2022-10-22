@@ -28,8 +28,7 @@ def pregunta_01():
     x_poly = poly.fit_transform(data[["x"]]).round(3)
 
     # Retorne x y y
-    #return x_poly, data.y
-    return x_poly
+    return x_poly, data.y
 
 
 def pregunta_02():
