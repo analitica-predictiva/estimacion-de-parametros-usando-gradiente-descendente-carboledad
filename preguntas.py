@@ -43,7 +43,7 @@ def pregunta_02():
     n_iterations = 1000
 
     # Defina el parámetro inicial `params` como un arreglo de tamaño 3 con ceros
-    
+    intercept_ = np.mean(np.array(y))
     params = np.zeros(x_poly.shape[1])
     for epochs in range(n_iterations):
 
@@ -51,10 +51,11 @@ def pregunta_02():
         y_pred = np.dot(x_poly, params)
 
         # Calcule el error
-        error = y - y_pred
+        error = (y - y_pred) / 2
 
         # Calcule el gradiente
-        gradient = 2/-2*np.sum(np.multiply(x_poly,np.array(error)[:,np.newaxis]),axis=0)
+        gradient = -2*np.sum(np.multiply(x_poly,np.array(error)[:,np.newaxis]),axis=0)
+        #gradient =  -2*sum(error)
 
         # Actualice los parámetros
         params = params - learning_rate * gradient
